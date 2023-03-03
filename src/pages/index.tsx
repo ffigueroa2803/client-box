@@ -19,15 +19,15 @@ export default function Home() {
   const { push } = useRouter()
   const { GetValueLS } = useLocalStorage()
   const dispatch = useDispatch()
-  useEffect(() => {
-    if (typeof GetValueLS('AccesToken') === 'string') {
-      SetToken(GetValueLS('AccesToken')!)
-      dispatch(SetToken(GetValueLS('AccesToken')!))
-    } else {
-      dispatch(SetToken(null))
-      push('/login')
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (typeof GetValueLS('AccesToken') === 'string') {
+  //     SetToken(GetValueLS('AccesToken')!)
+  //     dispatch(SetToken(GetValueLS('AccesToken')!))
+  //   } else {
+  //     dispatch(SetToken(null))
+  //     push('/login')
+  //   }
+  // }, [])
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">

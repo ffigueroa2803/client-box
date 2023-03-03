@@ -12,6 +12,7 @@ import { AppState, AppStore, Wrapper } from '@Store/store'
 import { useLocalStorage } from '@Hooks/useLocalStorage'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
+import { Show } from '@Common'
 
 //Configurando hora para usar de peru
 
@@ -19,6 +20,7 @@ import { useRouter } from 'next/router'
 // import es from 'date-fns/locale/es'
 
 function App({ Component, pageProps }: AppProps) {
+  const { pathname } = useRouter()
   const { GetValueLS } = useLocalStorage()
   const { token } = useSelector((Store: AppState) => Store.Auth)
   const { push } = useRouter()
@@ -33,22 +35,21 @@ function App({ Component, pageProps }: AppProps) {
     })
   }, [])
 
-  useEffect(() => {
-    if (typeof GetValueLS('AccesToken') === 'undefined') {
-      push('/login')
-    }
-  }, [token])
+  // useEffect(() => {
+  //   if (typeof GetValueLS('AccesToken') === 'undefined') {
+  //     push('/login')
+  //   }
+  // }, [token])
   return (
     <Fragment>
-      <div>
-        {typeof token === 'string' ? (
-          <LayoutAuth>
-            <Component {...pageProps} />
-          </LayoutAuth>
-        ) : (
+      <Show
+        condition={pathname !== '/login'}
+        isDeafult={<Component {...pageProps} />}
+      >
+        <LayoutAuth>
           <Component {...pageProps} />
-        )}
-      </div>
+        </LayoutAuth>
+      </Show>
       <ToastContainer position="top-right" />
     </Fragment>
   )

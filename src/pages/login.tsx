@@ -43,13 +43,13 @@ const Login = () => {
     },
   })
 
-  useEffect(() => {
-    if (typeof GetValueLS('AccessToken') === 'string') {
-      SetToken(GetValueLS('AccessToken')!)
-      dispatch(SetToken(GetValueLS('AccessToken')!))
-      push('/')
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (typeof GetValueLS('AccessToken') === 'string') {
+  //     SetToken(GetValueLS('AccessToken')!)
+  //     dispatch(SetToken(GetValueLS('AccessToken')!))
+  //     push('/')
+  //   }
+  // }, [])
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* background */}
@@ -71,7 +71,7 @@ const Login = () => {
           // data-aos="fade-up"
         >
           <NextImage
-            src="/img/proyect/logogoreu.jpg"
+            src="/default/logo-unu.jpg"
             alt="logo"
             className="absolute w-full h-full rounded-md"
             priority
@@ -83,7 +83,7 @@ const Login = () => {
           data-aos="fade-up"
           data-aos-delay="320"
         >
-          GRI - GRU
+        SISTEMA DE GESTIÓN DE TESORERIA Y CAJA
         </h3>
         <div
           className="w-[90%] max-w-[420px] bg-white rounded p-6"
