@@ -3,7 +3,7 @@ import NextImage from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '@Store/store'
 import { HeaderSidebarMobile } from './headerSidebarMobile'
-import { SidebarItem } from '@Mock/Sidebar'
+import { SidebarOptions } from '@Mock/Sidebar'
 import { BodySidebar } from './bodySidebar'
 
 export const SidebarMobile = () => {
@@ -17,7 +17,7 @@ export const SidebarMobile = () => {
       } `}
     >
       <HeaderSidebarMobile />
-      <BodySidebar data={SidebarItem} />
+      <BodySidebar data={SidebarOptions} />
     </div>
   )
 }

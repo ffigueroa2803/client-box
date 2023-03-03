@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { AppState } from '@Store/store'
 import { HeaderSidebarDesktop, BodySidebar } from '@Others'
-import { SidebarItem } from '@Mock/Sidebar'
+import { SidebarOptions } from '@Mock/Sidebar'
 
 export const SidebarDesktop = () => {
   const { Sidebar } = useSelector((Store: AppState) => Store.Screen)
@@ -13,7 +13,7 @@ export const SidebarDesktop = () => {
     >
       <div className="w-full flex flex-col gap-4 ">
         <HeaderSidebarDesktop />
-        <BodySidebar data={SidebarItem} />
+        <BodySidebar data={SidebarOptions} />
       </div>
     </div>
   )
