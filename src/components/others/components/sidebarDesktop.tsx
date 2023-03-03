@@ -8,7 +8,7 @@ export const SidebarDesktop = () => {
   return (
     <div
       className={` hidden fixed md:flex  dark:bg-darkCustom1 bg-white top-0 left-0 px-6  h-screen transition-all duration-300 ease-in-out border-r-2 border-custom4 dark:border-custom3 ${
-        Sidebar ? 'w-[270px]' : ' w-[80px]'
+        Sidebar ? 'w-[270px]' : ' w-[85px]'
       }`}
     >
       <div className="w-full flex flex-col gap-4 ">

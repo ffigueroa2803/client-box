@@ -69,7 +69,7 @@ export const BodySidebar = ({ data }: IProps) => {
             <FaAngleRight className="w-4 h-4" />
           </div>
           {/* Sub Items */}
-          {/* <div className="flex flex-col gap-2 w-full z-0   peer-checked:max-h-full max-h-0  ease-in-out transition-all duration-300">
+          <div className="flex flex-col gap-2 w-full z-0   peer-checked:max-h-full max-h-0  ease-in-out transition-all duration-300">
               {SubItem?.map((obj, j) => (
                 <div
                   key={j}
@@ -84,7 +84,7 @@ export const BodySidebar = ({ data }: IProps) => {
                   </div>
                 </div>
               ))}
-            </div> */}
+            </div>
         </div>
         {/* ))} */}
       </div>

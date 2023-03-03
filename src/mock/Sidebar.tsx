@@ -5,6 +5,7 @@ import {
   FaArchway,
   FaHammer,
   FaFileSignature,
+  FaChartLine,
 } from 'react-icons/fa'
 export interface ItemSidebar {
   Tittle: string
@@ -24,15 +25,42 @@ export interface ISidebar {
 export const SidebarOptions: ItemSidebar[] = [
   {
     Tittle: 'Proyecto',
-    Icon: FaRegBuilding,
+    Icon: FaTools,
     pathname: 'proyects',
-    SubItem: [],
+    SubItem: [
+      {
+        Tittle: 'Usuarios',
+        link: '/users',
+      },
+      {
+        Tittle: 'Roles',
+        link: '/rols',
+      },
+      {
+        Tittle: 'Clasificador',
+        link: '/sorter',
+      },
+    ],
   },
   {
     Tittle: 'Movimientos',
-    Icon: FaRegBuilding,
+    Icon: FaChartLine,
     pathname: 'movements',
-    SubItem: [],
+    SubItem: [
+      {
+        Tittle: 'Ingresos',
+        link: '/income',
+      },
+      {
+        Tittle: 'Ingresos',
+        link: '/income',
+      },
+      { Tittle: 'Extorno Recibo', link: '/returnreceipt' },
+      {
+        Tittle: 'Validar Anulación',
+        link: '/validatecancelattion',
+      },
+    ],
   },
   {
     Tittle: 'Reportes',
