@@ -52,10 +52,13 @@ export const SidebarOptions: ItemSidebar[] = [
         link: '/income',
       },
       {
-        Tittle: 'Ingresos',
-        link: '/income',
+        Tittle: 'Extorno Recibo',
+        link: '/returnreceipt',
       },
-      { Tittle: 'Extorno Recibo', link: '/returnreceipt' },
+      {
+        Tittle: 'Duplicado Recibo',
+        link: '/duplicatereceipt',
+      },
       {
         Tittle: 'Validar Anulación',
         link: '/validatecancelattion',

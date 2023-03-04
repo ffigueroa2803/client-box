@@ -5,14 +5,18 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import dynamic from 'next/dynamic'
 import type { AppProps } from 'next/app'
 import { Fragment, useEffect } from 'react'
-import { LayoutAuth } from '@Layouts'
+// import { LayoutAuth } from '@Layouts'
 import { AppState, AppStore, Wrapper } from '@Store/store'
 import { useLocalStorage } from '@Hooks/useLocalStorage'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { Show } from '@Common'
+const LayoutAuth = dynamic(() =>
+  import('@Layouts').then((res) => res.LayoutAuth),
+)
 
 //Configurando hora para usar de peru
 

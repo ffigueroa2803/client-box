@@ -1,7 +1,15 @@
 import { ReactNode } from 'react'
-import { Header, SidebarDesktop, SidebarMobile } from '@Others'
+import dynamic from 'next/dynamic'
+// import { Header, SidebarDesktop, SidebarMobile } from '@Others'
 import { useSelector } from 'react-redux'
 import { AppState } from '@Store/store'
+const Header = dynamic(() => import('@Others').then((res) => res.Header))
+const SidebarDesktop = dynamic(() =>
+  import('@Others').then((res) => res.SidebarDesktop),
+)
+const SidebarMobile = dynamic(() =>
+  import('@Others').then((res) => res.SidebarMobile),
+)
 
 interface Iprops {
   children: ReactNode
