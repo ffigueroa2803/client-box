@@ -8,6 +8,7 @@ interface IProps {
   placeholder: string
   name: string
   handleChange: (e: ChangeEvent<any>) => void
+  classNames?: string
 }
 export const Input = ({
   label,
@@ -17,9 +18,10 @@ export const Input = ({
   handleChange,
   name,
   maxLength = 255,
+  classNames="flex flex-col gap-2  w-full"
 }: IProps) => {
   return (
-    <div className="flex flex-col gap-2  w-full">
+    <div className={classNames}>
       <label htmlFor="">{label || ''}</label>
       <input
         type={type}
