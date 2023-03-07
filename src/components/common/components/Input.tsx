@@ -9,6 +9,7 @@ interface IProps {
   name: string
   handleChange: (e: ChangeEvent<any>) => void
   classNames?: string
+  readonly?: boolean
 }
 export const Input = ({
   label,
@@ -18,16 +19,19 @@ export const Input = ({
   handleChange,
   name,
   maxLength = 255,
-  classNames="flex flex-col gap-2  w-full"
+  classNames = 'flex flex-col gap-2  w-full',
+  readonly,
 }: IProps) => {
   return (
     <div className={classNames}>
       <label htmlFor="">{label || ''}</label>
       <input
         type={type}
-        className="input input-bordered dark:bg-custom6 bg-white"
+        className="input input-bordered dark:bg-custom6 bg-white read-only:bg-gray-200 read-only:cursor-not-allowed "
         placeholder={placeholder || ''}
         // onChange={handleChange}
+        // disabled
+        readOnly={readonly}
         onChange={
           type === 'number'
             ? (e) =>
