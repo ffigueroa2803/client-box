@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/** custom css table*/
+.table-custom {
+  @apply w-full;
+}
+.table-custom th,
+td {
+  @apply p-4 text-start;
+}
+
+.table-custom tbody tr {
+  @apply border-b  border-gray-300 bg-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 dark:bg-gray-600 cursor-pointer;
+}
+
+.table-custom thead {
+  @apply bg-custom5 text-white font-bold;
+}

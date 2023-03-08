@@ -15,6 +15,7 @@ import { Dropdown } from './components/dropdown'
 import { Show } from './components/Show'
 import { TableUser } from './components/tableUser'
 import { Toogle } from './components/Toogle'
+import { TableCustom01 } from './components/TableCustom01'
 export {
   TextInput,
   UserLogged,
@@ -33,4 +34,5 @@ export {
   Show,
   TableUser,
   Toogle,
+  TableCustom01,
 }
