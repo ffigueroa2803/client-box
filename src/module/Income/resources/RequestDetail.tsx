@@ -1,7 +1,7 @@
 import { Input } from '@Common'
 import { WrapperCard } from '@Layouts'
 import { useFormik } from 'formik'
-import { FaSearch, FaUserPlus } from 'react-icons/fa'
+import { FaEdit, FaPrint, FaSave, FaSearch, FaUserPlus } from 'react-icons/fa'
 
 export const RequestDetail = () => {
   const { values, handleChange, handleSubmit } = useFormik({
@@ -13,42 +13,53 @@ export const RequestDetail = () => {
   })
   return (
     <WrapperCard tittle="Detalle Recibo">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4"
-        autoComplete="off"
-      >
-        <div className="flex flex-row gap-y-2 flex-wrap justify-between items-end">
-          <Input
-            classNames="flex flex-col gap-2 w-full md:w-2/3  "
-            label="Buscar Numero Recibo"
-            placeholder="Numero recibo"
-            value={values.documentNumber}
-            maxLength={8}
-            name="documentNumber"
-            handleChange={handleChange}
-          />
-          <div className="w-full flex flex-row justify-end gap-4  items-center md:w-1/3 ">
-            <button type="submit" className="btn btn-primary  flex gap-1 ">
-              <FaSearch />
-            </button>
-            <button className="btn btn-success">
-              <FaUserPlus />
-            </button>
-          </div>
-        </div>
-        <div className="flex flex-row gap-y-2 flex-wrap justify-between items-end">
-          <Input
-            label="Nombres"
-            placeholder="Nombres y apellidos"
-            value={values.name}
-            maxLength={8}
-            readonly
-            name="name"
-            handleChange={handleChange}
-          />
-        </div>
-      </form>
+      <div className="w-full overflow-x-auto  ">
+        {/* <Show condition={!LoadingGetAllGuides} isDefault={<div></div>}> */}
+        <table className="table-custom min-w-[700px]">
+          <thead>
+            <tr>
+              <th className="w-[200px]">ID Producto</th>
+              <th className="min-w-[200px] w-min">Producto Concepto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th className="w-[200px]">Sub Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody className="">
+            <tr>
+              <td className="">133.22.08</td>
+              <td>Constancia de estudios</td>
+              <td>12.00</td>
+              <td>1</td>
+              <td>12.00</td>
+              <td>
+                <div className="flex flex-row items-center justify-between">
+                  <FaEdit />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        {/* </Show> */}
+      </div>
+      <div className="flex fle-row gap-2 lg:gap-10 mt-6 items-end">
+        <Input
+          handleChange={handleChange}
+          value={values.documentNumber}
+          label="Observaciones"
+          name="documentNumber"
+          placeholder="Ingrese las observaciones"
+        />
+        <button
+          type="submit"
+          className="btn btn-primary  flex flex-row items-center gap-4 "
+        >
+          <FaSave />
+          <FaPrint />
+          {/* <span>Guardar e Imprimir</span> */}
+        </button>
+      </div>
     </WrapperCard>
   )
 }

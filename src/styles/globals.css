@@ -8,7 +8,7 @@
 }
 .table-custom th,
 td {
-  @apply p-4 text-start;
+  @apply p-4 text-start text-custom1 dark:text-custom5;
 }
 
 .table-custom tbody tr {
@@ -16,5 +16,5 @@ td {
 }
 
 .table-custom thead {
-  @apply bg-custom5 text-white font-bold;
+  @apply bg-custom4 dark:bg-darkCustom1 font-bold;
 }
