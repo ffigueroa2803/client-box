@@ -14,6 +14,7 @@ import { useLocalStorage } from '@Hooks/useLocalStorage'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { Show } from '@Common'
+import { Modal } from 'src/components/common/components/Modal'
 const LayoutAuth = dynamic(() =>
   import('@Layouts').then((res) => res.LayoutAuth),
 )

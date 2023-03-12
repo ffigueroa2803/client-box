@@ -4,6 +4,8 @@ import {
   CustomerDataProducto,
   RequestDetail,
 } from '@Module/Income'
+import { FaSave } from 'react-icons/fa'
+import { Modal, ButtonModal } from 'src/components/common/components/Modal'
 
 const Income = () => {
   return (
@@ -14,6 +16,12 @@ const Income = () => {
         <CustomerDataProducto />
       </div>
       <RequestDetail />
+      <Modal Tittle="Primer Nodal" idModal="my-modal-4">
+        estamos aqui
+      </Modal>
+      <ButtonModal idModal="my-modal-4">
+        <FaSave />
+      </ButtonModal>
     </div>
   )
 }
