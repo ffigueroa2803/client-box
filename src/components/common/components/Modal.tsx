@@ -1,39 +1,75 @@
 import { Fragment, ReactNode } from 'react'
-import { IconType } from 'react-icons'
 interface IpropsModal {
   Tittle: string
   idModal: string
   children: ReactNode | JSX.Element
+  isOpen: boolean
+  onClick: (payload: boolean) => void
+  ClickOutside?: boolean
 }
-// idModal=my-modal-4
 interface IpropsButtonModal {
   children: ReactNode | JSX.Element
   className?: string
   idModal: string
+  onClick: () => void
 }
 
 export const ButtonModal = ({
   children,
   className,
   idModal,
+  onClick,
 }: IpropsButtonModal) => {
   return (
-    <label htmlFor={idModal} className={`btn bg- ${className}`}>
+    <label htmlFor={idModal} className={`${className}`} onClick={onClick}>
       {children}
     </label>
   )
 }
 
-export const Modal = ({ Tittle, idModal, children }: IpropsModal) => {
+export const Modal = ({
+  Tittle,
+  idModal,
+  children,
+  onClick,
+  isOpen,
+  ClickOutside,
+}: IpropsModal) => {
   return (
     <Fragment>
-      <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-      <label htmlFor={idModal} className="modal cursor-pointer">
-        <label className="modal-box bg-custom5 relative" htmlFor="">
-          <h3 className="text-lg font-bold">{Tittle || ''}</h3>
-          <p className="py-4">{children}</p>
-        </label>
-      </label>
+      <input
+        type="checkbox"
+        className="modal-toggle"
+        checked={isOpen}
+        onClick={() => onClick(true)}
+      />
+      <div
+        className="modal"
+        onClick={() => (ClickOutside ? onClick(false) : undefined)}
+      >
+        <div className="modal-box w-11/12 max-w-5xl relative dark:bg-custom6">
+          <label
+            htmlFor={idModal}
+            onClick={() => onClick(false)}
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="font-bold text-lg text-custom6 dark:text-custom5 ">
+            {Tittle || ''}
+          </h3>
+          <p className="py-4  text-custom6 dark:text-custom5 ">{children}</p>
+          <div className="modal-action">
+            <label
+              htmlFor={idModal}
+              className="btn"
+              onClick={() => onClick(false)}
+            >
+              ok
+            </label>
+          </div>
+        </div>
+      </div>
     </Fragment>
   )
 }

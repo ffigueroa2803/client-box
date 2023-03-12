@@ -1,9 +1,11 @@
-import { Input } from '@Common'
+import { Input, Modal, ButtonModal } from '@Common'
+import { useToggle } from '@Hooks/usetoggle'
 import { WrapperCard } from '@Layouts'
 import { useFormik } from 'formik'
 import { FaSearch, FaUserPlus } from 'react-icons/fa'
 
 export const CustomerDataClient = () => {
+  const { isOpen, CloseToggle, OpenToggle, SetIsOpen } = useToggle()
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
       documentNumber: '',
@@ -32,9 +34,11 @@ export const CustomerDataClient = () => {
             <button type="submit" className="btn btn-primary  flex gap-1 ">
               <FaSearch />
             </button>
-            <button className="btn btn-success">
-              <FaUserPlus />
-            </button>
+            <ButtonModal idModal="my-modal-1" onClick={OpenToggle}>
+              <button className="btn btn-success">
+                <FaUserPlus />
+              </button>
+            </ButtonModal>
           </div>
         </div>
         <div className="flex flex-row gap-y-2 flex-wrap justify-between items-end">
@@ -49,6 +53,14 @@ export const CustomerDataClient = () => {
           />
         </div>
       </form>
+      <Modal
+        Tittle="Registrar Usuario"
+        idModal="my-modal-1"
+        onClick={SetIsOpen}
+        isOpen={isOpen}
+      >
+        Formulario Agregar Usuario
+      </Modal>
     </WrapperCard>
   )
 }

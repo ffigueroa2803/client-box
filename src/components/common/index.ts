@@ -16,6 +16,7 @@ import { Show } from './components/Show'
 import { TableUser } from './components/tableUser'
 import { Toogle } from './components/Toogle'
 import { TableCustom01 } from './components/TableCustom01'
+import { ButtonModal, Modal } from './components/Modal'
 export {
   TextInput,
   UserLogged,
@@ -35,4 +36,6 @@ export {
   TableUser,
   Toogle,
   TableCustom01,
+  ButtonModal,
+  Modal
 }

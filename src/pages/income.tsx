@@ -1,4 +1,5 @@
 import { BreadCrumbs, Input } from '@Common'
+import { useToggle } from '@Hooks/usetoggle'
 import {
   CustomerDataClient,
   CustomerDataProducto,
@@ -8,6 +9,7 @@ import { FaSave } from 'react-icons/fa'
 import { Modal, ButtonModal } from 'src/components/common/components/Modal'
 
 const Income = () => {
+  const { isOpen, CloseToggle, OpenToggle, SetIsOpen } = useToggle()
   return (
     <div className="flex flex-col gap-4">
       <BreadCrumbs TituloSeccion="Ingresos" />
@@ -16,12 +18,18 @@ const Income = () => {
         <CustomerDataProducto />
       </div>
       <RequestDetail />
-      <Modal Tittle="Primer Nodal" idModal="my-modal-4">
+      {/* <Modal
+        Tittle="Primer Nodal"
+        idModal="my-modal-1"
+        onClick={SetIsOpen}
+        isOpen={isOpen}
+        ClickOutside
+      >
         estamos aqui
       </Modal>
-      <ButtonModal idModal="my-modal-4">
+      <ButtonModal idModal="my-modal-1" onClick={OpenToggle}>
         <FaSave />
-      </ButtonModal>
+      </ButtonModal> */}
     </div>
   )
 }
