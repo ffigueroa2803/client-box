@@ -4,13 +4,13 @@ import { HYDRATE } from 'next-redux-wrapper'
 import { LanguajeOptions } from './entity'
 
 export interface ScreenType {
-  Dark: boolean
+  // Dark: boolean
   languaje: string
   Sidebar: boolean
 }
 
 const InitialState: ScreenType = {
-  Dark: false,
+  // Dark: false,
   languaje: LANGUAJES.ENGLISH,
   Sidebar: false,
 }
@@ -19,10 +19,6 @@ export const ScreenSlice = createSlice({
   name: 'Screen',
   initialState: InitialState,
   reducers: {
-    SetDark: (state: ScreenType, { payload }: PayloadAction<boolean>) => ({
-      ...state,
-      Dark: payload,
-    }),
     SetLanguaje: (
       state: ScreenType,
       { payload }: PayloadAction<LanguajeOptions>,
@@ -41,7 +37,7 @@ export const ScreenSlice = createSlice({
 })
 
 /* Funciones para usar y actualizar el state */
-export const { SetDark, SetLanguaje, SetSidebar } = ScreenSlice.actions
+export const { SetLanguaje, SetSidebar } = ScreenSlice.actions
 
 export const ScreenReducer = ScreenSlice.reducer
 // export const SelectScreenState=(state:)=>

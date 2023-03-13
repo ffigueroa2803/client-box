@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable */
 import '../styles/globals.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import { ToastContainer, toast } from 'react-toastify'
@@ -8,16 +8,16 @@ import 'aos/dist/aos.css'
 import dynamic from 'next/dynamic'
 import type { AppProps } from 'next/app'
 import { Fragment, useEffect } from 'react'
-// import { LayoutAuth } from '@Layouts'
 import { AppState, AppStore, Wrapper } from '@Store/store'
 import { useLocalStorage } from '@Hooks/useLocalStorage'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { Show } from '@Common'
-import { Modal } from 'src/components/common/components/Modal'
-const LayoutAuth = dynamic(() =>
-  import('@Layouts').then((res) => res.LayoutAuth),
-)
+import { useLoadTheme } from '@Hooks/useDarkMode'
+import { LayoutAuth } from '@Layouts'
+// const LayoutAuth = dynamic(() =>
+//   import('@Layouts').then((res) => res.LayoutAuth),
+// )
 
 //Configurando hora para usar de peru
 
@@ -26,12 +26,8 @@ const LayoutAuth = dynamic(() =>
 
 function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter()
-  const { GetValueLS } = useLocalStorage()
-  const { token } = useSelector((Store: AppState) => Store.Auth)
-  const { push } = useRouter()
-  const dispatch = useDispatch()
-  // const [token, setToken] = useState<string | undefined>(undefined)
-
+  useLoadTheme()
+  
   useEffect(() => {
     Aos.init({
       once: true,

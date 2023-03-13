@@ -1,17 +1,21 @@
-import { useState, useEffect } from 'react'
-
-export const useDarkSide = () => {
-  const [theme, setTheme] = useState('light')
-  const colorTheme = theme === 'dark' ? 'light' : 'dark'
+import { getThemeFromLocalStorage, useTheme } from '@Store/Theme'
+import { useEffect } from 'react'
+export const useLoadTheme = () => {
+  useEffect(() => {
+    const theme = getThemeFromLocalStorage()
+    if (theme) {
+      useTheme.setState({ theme })
+      document.body.className = theme
+    }
+  }, [])
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const root = window.document.documentElement
-      root.classList.remove(colorTheme)
-      root.classList.add(theme)
-      localStorage.setItem('theme', theme)
-    }
-  }, [theme, colorTheme])
+    const removeSusc = useTheme.subscribe(({ theme }) => {
+      if (theme) document.body.className = theme
+    })
 
-  return { colorTheme, setTheme }
+    return () => {
+      removeSusc()
+    }
+  }, [])
 }

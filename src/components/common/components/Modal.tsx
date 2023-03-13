@@ -47,7 +47,7 @@ export const Modal = ({
         className="modal"
         onClick={() => (ClickOutside ? onClick(false) : undefined)}
       >
-        <div className="modal-box w-11/12 max-w-5xl relative dark:bg-custom6">
+        <div className="modal-box w-11/12 max-w-5xl relative bg-custom4 dark:bg-custom6">
           <label
             htmlFor={idModal}
             onClick={() => onClick(false)}

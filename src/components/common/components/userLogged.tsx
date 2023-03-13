@@ -32,7 +32,7 @@ export const UserLogged = () => {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content menu p-2 shadow bg-base-100 rounded-lg w-52 text-custom3"
+        className="dropdown-content menu p-2 shadow rounded-lg w-52 text-custom3 bg-custom4 dark:bg-darkCustom1"
       >
         {ItemUserLogge?.map(({ descripction, icon, onClick, url }, k) => (
           <li key={k}>
