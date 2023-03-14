@@ -1,8 +1,20 @@
-import { Input, Modal, ButtonModal } from '@Common'
+import { Input, Modal } from '@Common'
 import { useToggle } from '@Hooks/usetoggle'
 import { WrapperCard } from '@Layouts'
+// import { CreatePersonFrom } from '@Modules/Income'
+import dynamic from 'next/dynamic'
 import { useFormik } from 'formik'
 import { FaSearch, FaUserPlus } from 'react-icons/fa'
+import { Suspense } from 'react'
+const CreatePersonFrom = dynamic(
+  () => import('@Modules/Income').then((res) => res.CreatePersonFrom),
+  { ssr: false },
+)
+
+const ButtonModal = dynamic(
+  () => import('@Common').then((res) => res.ButtonModal),
+  { ssr: false },
+)
 
 export const CustomerDataClient = () => {
   const { isOpen, CloseToggle, OpenToggle, SetIsOpen } = useToggle()
@@ -22,7 +34,7 @@ export const CustomerDataClient = () => {
       >
         <div className="flex flex-row gap-y-2 flex-wrap justify-between items-end">
           <Input
-            classNames="flex flex-col gap-2 w-full md:w-2/3  "
+            className="flex flex-col gap-2 w-full md:w-2/3  "
             label="Buscar Numero Recibo"
             placeholder="Numero recibo"
             value={values.documentNumber}
@@ -54,12 +66,13 @@ export const CustomerDataClient = () => {
         </div>
       </form>
       <Modal
-        Tittle="Registrar Usuario"
+        Tittle="Crear Persona"
         idModal="my-modal-1"
         onClick={SetIsOpen}
         isOpen={isOpen}
+        className="max-w-lg w-[90%]"
       >
-        Formulario Agregar Usuario
+        <CreatePersonFrom />
       </Modal>
     </WrapperCard>
   )

@@ -33,7 +33,7 @@ export const CustomerDataProducto = () => {
         />
         <div className="flex flex-row gap-y-2 flex-wrap justify-between items-end">
           <Input
-            classNames="flex flex-col gap-2 w-full md:w-2/3  "
+            className="flex flex-col gap-2 w-full md:w-2/3  "
             label="Cantidad"
             placeholder="Ingrese su cantidad"
             value={''}

@@ -6,6 +6,7 @@ interface IpropsModal {
   isOpen: boolean
   onClick: (payload: boolean) => void
   ClickOutside?: boolean
+  className?: string
 }
 interface IpropsButtonModal {
   children: ReactNode | JSX.Element
@@ -34,6 +35,7 @@ export const Modal = ({
   onClick,
   isOpen,
   ClickOutside,
+  className = 'w-11/12 max-w-5xl ',
 }: IpropsModal) => {
   return (
     <Fragment>
@@ -41,13 +43,16 @@ export const Modal = ({
         type="checkbox"
         className="modal-toggle"
         checked={isOpen}
-        onClick={() => onClick(true)}
+        defaultChecked
+        onChange={() => onClick(true)}
       />
       <div
         className="modal"
         onClick={() => (ClickOutside ? onClick(false) : undefined)}
       >
-        <div className="modal-box w-11/12 max-w-5xl relative bg-custom4 dark:bg-custom6">
+        <div
+          className={`modal-box relative bg-white dark:bg-custom6  ${className}`}
+        >
           <label
             htmlFor={idModal}
             onClick={() => onClick(false)}

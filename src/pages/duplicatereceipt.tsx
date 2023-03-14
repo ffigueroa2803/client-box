@@ -12,7 +12,7 @@ const DuplicateReceipt = () => {
         <div className="flex flex-row gap-y-2 flex-wrap justify-between items-end">
           {/* <div className="w-1/2"> */}
           <Input
-            classNames="flex flex-col gap-2 w-full md:w-1/2  "
+            className="flex flex-col gap-2 w-full md:w-1/2  "
             label="Buscar Numero Recibo"
             placeholder="Numero recibo"
             value={''}

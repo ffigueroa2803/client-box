@@ -1,13 +1,11 @@
 import { BreadCrumbs, Input } from '@Common'
 import { useToggle } from '@Hooks/usetoggle'
-import {
-  CustomerDataClient,
-  CustomerDataProducto,
-  RequestDetail,
-} from '@Module/Income'
-import { FaSave } from 'react-icons/fa'
-import { Modal, ButtonModal } from 'src/components/common/components/Modal'
-
+import { CustomerDataClient, CustomerDataProducto } from '@Modules/Income'
+import dynamic from 'next/dynamic'
+const RequestDetail = dynamic(
+  () => import('@Modules/Income').then((res) => res.RequestDetail),
+  { ssr: false },
+)
 const Income = () => {
   const { isOpen, CloseToggle, OpenToggle, SetIsOpen } = useToggle()
   return (
@@ -18,18 +16,6 @@ const Income = () => {
         <CustomerDataProducto />
       </div>
       <RequestDetail />
-      {/* <Modal
-        Tittle="Primer Nodal"
-        idModal="my-modal-1"
-        onClick={SetIsOpen}
-        isOpen={isOpen}
-        ClickOutside
-      >
-        estamos aqui
-      </Modal>
-      <ButtonModal idModal="my-modal-1" onClick={OpenToggle}>
-        <FaSave />
-      </ButtonModal> */}
     </div>
   )
 }
