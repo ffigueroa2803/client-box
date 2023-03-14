@@ -51,7 +51,7 @@ export const Modal = ({
         onClick={() => (ClickOutside ? onClick(false) : undefined)}
       >
         <div
-          className={`modal-box relative bg-white dark:bg-custom6  ${className}`}
+          className={`modal-box relative bg-white dark:bg-custom6 rounded-md ${className}`}
         >
           <label
             htmlFor={idModal}

@@ -72,7 +72,9 @@ export const CustomerDataClient = () => {
         isOpen={isOpen}
         className="max-w-lg w-[90%]"
       >
-        <CreatePersonFrom />
+        <Suspense>
+          <CreatePersonFrom />
+        </Suspense>
       </Modal>
     </WrapperCard>
   )

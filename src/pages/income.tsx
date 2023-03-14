@@ -1,10 +1,15 @@
 import { BreadCrumbs, Input } from '@Common'
 import { useToggle } from '@Hooks/usetoggle'
-import { CustomerDataClient, CustomerDataProducto } from '@Modules/Income'
 import dynamic from 'next/dynamic'
-const RequestDetail = dynamic(
-  () => import('@Modules/Income').then((res) => res.RequestDetail),
-  { ssr: false },
+const RequestDetail = dynamic(() =>
+  import('@Modules/Income').then((res) => res.RequestDetail),
+)
+const CustomerDataClient = dynamic(() =>
+  import('@Modules/Income').then((res) => res.CustomerDataClient),
+)
+
+const CustomerDataProducto = dynamic(() =>
+  import('@Modules/Income').then((res) => res.CustomerDataProducto),
 )
 const Income = () => {
   const { isOpen, CloseToggle, OpenToggle, SetIsOpen } = useToggle()
